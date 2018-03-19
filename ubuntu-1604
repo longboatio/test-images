@@ -12,7 +12,7 @@ RUN mkdir /var/run/sshd && chmod 0755 /var/run/sshd
 
 RUN sed -i 's/^#?PermitRootLogin/PermitRootLogin yes/' /etc/ssh/sshd_config
 
-COPY authorized_keys /root/.ssh/authorized_keys
+COPY id_ecdsa.pub /root/.ssh/authorized_keys
 
 ENTRYPOINT ["/usr/sbin/sshd", "-D"]
 
